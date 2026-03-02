@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    --primary: #6366f1;
+    --primary-foreground: #ffffff;
+    --secondary: #ec4899;
+    --secondary-foreground: #ffffff;
+    --accent: #f59e0b;
+    --accent-foreground: #ffffff;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-slate-200;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900;
+    font-family: 'Nunito', sans-serif;
+    /* Soft premium animated gradient background */
+    background: linear-gradient(-45deg, #e0e7ff, #fae8ff, #ffedd5, #dcfce7);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/60 backdrop-blur-xl border border-white/40 shadow-xl;
+  }
+
+  .glass-panel-dark {
+    @apply bg-black/40 backdrop-blur-xl border border-white/10 shadow-xl;
+  }
+}
+
+/* Glow animation for highlighted objects */
+@keyframes glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.5), inset 0 0 10px rgba(245, 158, 11, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.9), inset 0 0 15px rgba(245, 158, 11, 0.4);
+  }
+}
+
+.glow-highlight {
+  animation: glow 1.5s ease-in-out infinite;
+  border: 4px solid rgba(245, 158, 11, 0.9);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 10;
+}
+
+/* Custom Scrollbar for Transcript */
+.transcript-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.transcript-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.transcript-scroll::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 10px;
+}
+
+.transcript-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* Confetti animations */
+@keyframes confetti-fall {
+  to {
+    transform: translateY(100vh) rotateZ(360deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: fixed;
+  pointer-events: none;
+  animation: confetti-fall 3s linear forwards;
+  z-index: 50;
+}
+
+/* Safe Area Paddings */
+.safe-p-b {
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+}
