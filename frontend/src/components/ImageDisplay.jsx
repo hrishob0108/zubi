@@ -31,7 +31,7 @@ export const ImageDisplay = ({ highlightedObject, className = '' }) => {
       {/* Main Image */}
       {/* We use a placeholder image for now, but in a real app this would be a high-res asset */}
       <img
-        src="https://images.unsplash.com/photo-1544473244-f6895e69ce8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+        src="/park.png"
         alt="A beautiful park with a dog, trees, and swings"
         className="w-full h-full object-cover relative z-10 transition-transform duration-1000 hover:scale-105"
         crossOrigin="anonymous"
